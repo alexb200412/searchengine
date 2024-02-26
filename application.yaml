@@ -1,0 +1,37 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/search_engine?useSSL=false&requireSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: testtest
+#    schema: classpath:schema.sql #для создания индекса скриптом
+#    initialization-mode: always  #для создания индекса скриптом
+#  sql:
+#    init:
+#      mode: always               #для создания индекса скриптом
+#  jpa:
+#    defer-datasource-initialization: true #для создания индекса скриптом
+    hibernate:
+#      ddl-auto: create
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+indexing-settings:
+  sites:
+    - url: https://pasekilukash.ru
+      name: Пасеки семьи Лукаш
+    - url: https://dombulgakova.ru
+      name: Булгаковский дом
+    - url: https://www.playback.ru
+      name: PlayBack.Ru
+http-request:
+#  userAgent: Mozilla/5.0 (Windows; U; WindowsNT 5.1; en-US; rv1.8.1.6
+  userAgent: Mozilla
+  referer: http://www.google.com
+
+
